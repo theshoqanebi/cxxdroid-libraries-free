@@ -5,7 +5,8 @@ case `arch` in
 	aarch64)
 		printf "\e[32m%s\e[0m\n" "Supported";
 		archurl="arm64" ;;
-	arm)
+	arm*)
+		printf "\e[32m%s\e[0m\n" "Supported";
 		archurl="arm" ;;
 	*)
 		printf "\e[30m%s\e[0m\n" "Unsuppored";
