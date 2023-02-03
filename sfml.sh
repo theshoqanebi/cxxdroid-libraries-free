@@ -14,7 +14,8 @@ case `arch` in
 		exit 1 ;;
 	esac
 printf "\e[35m%s" "* Downloading Files: "
-wget "https://cxxdroid-libraries-free.herokuapp.com/?lib=sfml&arch=${archurl}" -O "/data/user/0/ru.iiec.cxxdroid/app_HOME/sfml-${archurl}.tar.xz" >/dev/null 2>&1
+
+wget "https://raw.githubusercontent.com/theshoqanebi/cxxdroid-libraries-free/main/sfml-${archurl}.tar.xz" -O "/data/user/0/ru.iiec.cxxdroid/app_HOME/sfml-${archurl}.tar.xz" >/dev/null 2>&1
 printf "\e[32m%s\n" "Done"
 
 printf "\e[35m%s" "* Installing Library: "
