@@ -1,29 +1,51 @@
 #!/usr/bin/sh
-printf "\e[36m%s\e[0m\n" "Cxxdroid SFML Library Installation:-"
-printf "\e[35m%s" "* Checking support: "
+
+# Colors
+RESET='\e[0m'
+CYAN='\e[36m'
+MAGENTA='\e[35m'
+GREEN='\e[32m'
+BLACK='\e[30m'
+
+printf "${CYAN}%s${RESET}\n" "Cxxdroid SFML Library Installation:-"
+
+printf "${MAGENTA}%s" "* Checking support: "
 case `arch` in
 	aarch64)
-		printf "\e[32m%s\e[0m\n" "Supported";
-		archurl="arm64" ;;
+		printf "${GREEN}%s${RESET}\n" "Supported"
+		archurl="arm64"
+		;;
 	arm*)
-		printf "\e[32m%s\e[0m\n" "Supported";
-		archurl="arm" ;;
+		printf "${GREEN}%s${RESET}\n" "Supported"
+		archurl="arm"
+		;;
 	*)
-		printf "\e[30m%s\e[0m\n" "Unsuppored";
-		printf "\e[30m%s\e[0m\n" "* sfml library installation faild )-:"
-		exit 1 ;;
-	esac
-printf "\e[35m%s" "* Downloading Files: "
+		printf "${BLACK}%s${RESET}\n" "Unsupported"
+		printf "${BLACK}%s${RESET}\n" "* SFML library installation failed )-:"
+		exit 1
+		;;
+esac
 
-wget "https://raw.githubusercontent.com/theshoqanebi/cxxdroid-libraries-free/main/sfml-${archurl}.tar.xz" -O "/data/user/0/ru.iiec.cxxdroid/app_HOME/sfml-${archurl}.tar.xz" >/dev/null 2>&1
-printf "\e[32m%s\n" "Done"
+printf "${MAGENTA}%s" "* Downloading Files: "
 
-printf "\e[35m%s" "* Installing Library: "
-tar -xf "/data/user/0/ru.iiec.cxxdroid/app_HOME/sfml-${archurl}.tar.xz" -C /data/user/0/ru.iiec.cxxdroid/files/sysroot >/dev/null 2>&1
-printf "\e[32m%s\n" "Done"
+wget "https://raw.githubusercontent.com/theshoqanebi/cxxdroid-libraries-free/main/sfml-${archurl}.tar.xz" \
+	-O "/data/user/0/ru.iiec.cxxdroid/app_HOME/sfml-${archurl}.tar.xz" \
+	>/dev/null 2>&1
 
-printf "\e[35m%s" "* Removing Temp Files: "
+printf "${GREEN}%s${RESET}\n" "Done"
+
+printf "${MAGENTA}%s" "* Installing Library: "
+
+tar -xf "/data/user/0/ru.iiec.cxxdroid/app_HOME/sfml-${archurl}.tar.xz" \
+	-C /data/user/0/ru.iiec.cxxdroid/files/sysroot \
+	>/dev/null 2>&1
+
+printf "${GREEN}%s${RESET}\n" "Done"
+
+printf "${MAGENTA}%s" "* Removing Temp Files: "
+
 rm "/data/user/0/ru.iiec.cxxdroid/app_HOME/sfml-${archurl}.tar.xz"
-printf "\e[32m%s\n" "Done"
 
-printf "\e[32m%s\e[0m\n" "* SFML library installed successfully (-:"
+printf "${GREEN}%s${RESET}\n" "Done"
+
+printf "${GREEN}%s${RESET}\n" "* SFML library installed successfully (-:"
